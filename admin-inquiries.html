@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상담 문의 내역 | Stone Admin</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="admin-logo">STONE <span>ADMIN</span></div>
+        <nav class="nav-menu">
+            <a href="admin.html" class="nav-item">📊 대시보드</a>
+            <a href="admin-portfolio.html" class="nav-item">💼 포트폴리오 관리</a>
+            <a href="admin-services.html" class="nav-item">✨ 서비스/가격 관리</a>
+            <a href="admin-inquiries.html" class="nav-item active">📩 상담 문의 내역</a>
+            <a href="admin-settings.html" class="nav-item">⚙️ 기본 설정</a>
+        </nav>
+        <div class="footer-nav">
+            <a href="index.html" class="nav-item">🏠 홈페이지 바로가기</a>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="topbar">
+            <h2>상담 문의 내역 관리</h2>
+            <div class="user-meta">
+                <span>관리자님, 안녕하세요</span>
+                <button class="btn-sm" onclick="location.href='admin-login.html'">로그아웃</button>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <div class="data-card">
+                <div class="card-header">
+                    <h3>문의 리스트</h3>
+                    <div class="d-flex gap-10">
+                        <select class="btn-sm">
+                            <option>전체 상태</option>
+                            <option>신규</option>
+                            <option>확인됨</option>
+                        </select>
+                        <button class="btn-sm">엑셀 다운로드</button>
+                    </div>
+                </div>
+                <div style="padding: 24px;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>일시</th>
+                                <th>고객명</th>
+                                <th>연락처</th>
+                                <th>관심 플랜</th>
+                                <th>상태</th>
+                                <th>관리</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="row-1">
+                                <td>#1028</td>
+                                <td>2026-03-02 22:10</td>
+                                <td><b>김철수</b></td>
+                                <td>010-1111-2222</td>
+                                <td>Enterprise</td>
+                                <td><span class="status-badge status-new">신규</span></td>
+                                <td>
+                                    <button class="btn-sm" onclick="viewDetail('김철수', 'Enterprise')">상세</button>
+                                    <button class="btn-sm btn-red" onclick="deleteInq('row-1')">삭제</button>
+                                </td>
+                            </tr>
+                            <tr id="row-2">
+                                <td>#1027</td>
+                                <td>2026-03-02 15:40</td>
+                                <td><b>박소희</b></td>
+                                <td>010-3333-4444</td>
+                                <td>Growth</td>
+                                <td><span class="status-badge status-replied">확인됨</span></td>
+                                <td>
+                                    <button class="btn-sm" onclick="viewDetail('박소희', 'Growth')">상세</button>
+                                    <button class="btn-sm btn-red" onclick="deleteInq('row-2')">삭제</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>문의 상세 내용</h3>
+                <button onclick="closeModal()"
+                    style="border:none; background:none; font-size:24px; cursor:pointer;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><b>성함:</b> <span id="det-name"></span></p>
+                <p style="margin-top:10px;"><b>신청 플랜:</b> <span id="det-plan"></span></p>
+                <p style="margin-top:20px;"><b>문의 내용:</b></p>
+                <div
+                    style="background:#f1f1f1; padding:15px; border-radius:8px; margin-top:10px; font-size:14px; line-height:1.6;">
+                    안녕하세요. 새로운 비즈니스를 시작하려고 합니다. 기업용 홈페이지 제작 비용과 기간에 대해 상담받고 싶습니다. 브랜드 로고와 기획안은 준비되어 있습니다.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-sm btn-blue" onclick="closeModal()">확인 완료</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function viewDetail(name, plan) {
+            document.getElementById('detail-modal').classList.add('active');
+            document.getElementById('det-name').innerText = name;
+            document.getElementById('det-plan').innerText = plan;
+        }
+        function closeModal() {
+            document.getElementById('detail-modal').classList.remove('active');
+        }
+        function deleteInq(id) {
+            if (confirm('이 문의 내역을 삭제하시겠습니까?')) {
+                document.getElementById(id).remove();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스/가격 관리 | Stone Admin</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="admin-logo">STONE <span>ADMIN</span></div>
+        <nav class="nav-menu">
+            <a href="admin.html" class="nav-item">📊 대시보드</a>
+            <a href="admin-portfolio.html" class="nav-item">💼 포트폴리오 관리</a>
+            <a href="admin-services.html" class="nav-item active">✨ 서비스/가격 관리</a>
+            <a href="admin-inquiries.html" class="nav-item">📩 상담 문의 내역</a>
+            <a href="admin-settings.html" class="nav-item">⚙️ 기본 설정</a>
+        </nav>
+        <div class="footer-nav">
+            <a href="index.html" class="nav-item">🏠 홈페이지 바로가기</a>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="topbar">
+            <h2>서비스 및 가격 플랜 관리</h2>
+            <div class="user-meta">
+                <span>관리자님, 안녕하세요</span>
+                <button class="btn-sm" onclick="location.href='admin-login.html'">로그아웃</button>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <div class="data-card">
+                <div class="card-header">
+                    <h3>현재 활성화된 플랜 (3개)</h3>
+                </div>
+                <div style="padding: 24px;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>플랜명</th>
+                                <th>가격 (VAT 별도)</th>
+                                <th>주요 기능</th>
+                                <th>상태</th>
+                                <th>관리</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Essential</b></td>
+                                <td>190,000원</td>
+                                <td>단일 페이지, 기본 SEO, 반응형</td>
+                                <td><span class="status-badge status-replied">노출중</span></td>
+                                <td><button class="btn-sm" onclick="openEdit('Essential', '190,000')">수정</button></td>
+                            </tr>
+                            <tr>
+                                <td><b>Growth</b></td>
+                                <td>390,000원</td>
+                                <td>다중 페이지(5P), 프리미엄 디자인</td>
+                                <td><span class="status-badge status-replied">노출중</span></td>
+                                <td><button class="btn-sm" onclick="openEdit('Growth', '390,000')">수정</button></td>
+                            </tr>
+                            <tr>
+                                <td><b>Enterprise</b></td>
+                                <td>890,000원</td>
+                                <td>맞춤형 기능, 고도화 연동</td>
+                                <td><span class="status-badge status-replied">노출중</span></td>
+                                <td><button class="btn-sm" onclick="openEdit('Enterprise', '890,000')">수정</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="service-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>서비스 플랜 수정</h3>
+                <button onclick="closeModal()"
+                    style="border:none; background:none; font-size:24px; cursor:pointer;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="admin-form-group">
+                    <label>플랜 이름</label>
+                    <input type="text" id="plan-name">
+                </div>
+                <div class="admin-form-group">
+                    <label>가격 (원)</label>
+                    <input type="text" id="plan-price">
+                </div>
+                <div class="admin-form-group">
+                    <label>설명 및 혜택</label>
+                    <textarea rows="5" id="plan-features"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-sm" onclick="closeModal()">취소</button>
+                <button class="btn-sm btn-blue" onclick="saveData()">저장하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openEdit(name, price) {
+            document.getElementById('service-modal').classList.add('active');
+            document.getElementById('plan-name').value = name;
+            document.getElementById('plan-price').value = price;
+        }
+        function closeModal() {
+            document.getElementById('service-modal').classList.remove('active');
+        }
+        function saveData() {
+            alert('서비스 정보가 업데이트되었습니다.');
+            closeModal();
+        }
+    </script>
+</body>
+
+</html>

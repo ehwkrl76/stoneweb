@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상담신청 | Stone Web Studio</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">STONE <span>WEB STUDIO</span></a></div>
+                <ul class="nav-links">
+                    <li><a href="about.html">회사 소개</a></li>
+                    <li><a href="services.html">서비스</a></li>
+                    <li><a href="portfolio.html">포트폴리오</a></li>
+                </ul>
+                <a href="contact.html" class="btn-contact">상담신청</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="height: 400px;">
+            <div class="slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80');">
+                <div class="slide-content">
+                    <h1>상담신청</h1>
+                    <p>성공적인 웹 프로젝트의 시작, 스톤 웹 스튜디오가 함께합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding: var(--section-padding);">
+            <div class="contact-form-container">
+                <div class="section-title" style="margin-bottom: 30px;">
+                    <h2>Project Inquiry</h2>
+                    <p>원하시는 플랜과 내용을 작성해 주시면 담당자가 연락드립니다.</p>
+                    <div class="bar"></div>
+                </div>
+                <form id="contact-form" action="https://formspree.io/f/moqogkwl" method="POST">
+                    <div class="form-group">
+                        <label>성함/업체명</label>
+                        <input type="text" name="name" placeholder="홍길동 / (주)스톤웹" required>
+                    </div>
+                    <div class="form-group">
+                        <label>연락처</label>
+                        <input type="text" name="phone" placeholder="010-0000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>서비스 플랜 선택</label>
+                        <select id="plan-select" name="plan">
+                            <option value="none">플랜을 선택해주세요</option>
+                            <option value="essential">Essential - 19만원</option>
+                            <option value="growth">Growth - 39만원</option>
+                            <option value="enterprise">Enterprise - 89만원</option>
+                            <option value="custom">주문제작/기타</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>문의 내용</label>
+                        <textarea name="message" rows="5" placeholder="제작하고자 하는 사이트의 성격 및 요구사항을 상세히 적어주세요."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">상담 예약하기</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // URL 파라미터에서 선택된 플랜을 가져와 처리
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const plan = urlParams.get('plan');
+            if (plan) {
+                const select = document.getElementById('plan-select');
+                select.value = plan;
+            }
+        });
+
+        // 상담 신청 폼 제출 처리
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalBtnText = submitBtn.innerText;
+
+            // 상태 표시
+            submitBtn.disabled = true;
+            submitBtn.innerText = '전송 중...';
+
+            const formData = new FormData(this);
+
+            try {
+                // Formspree API 호출 (사용자 설정 시 실제 전송 가능)
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('상담 예약 신청이 성공적으로 완료되었습니다! 담당자가 최대한 빠르게 연락드리겠습니다.\n(ehwkrl76@naver.com으로 문의 내용이 발송됩니다)');
+                    this.reset();
+                } else {
+                    alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주시거나 고객센터로 전화 문의 부탁드립니다.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // 오프라인이거나 다른 오류 시 사용자에게 메시지 표시
+                alert('네트워크 오류가 발생했습니다. 인터넷 연결을 확인하거나 연락처 정보를 다시 확인해 주세요.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+            }
+        });
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">STONE <span>WEB STUDIO</span></div>
+                    <p>당신의 디지털 비즈니스 성장을 위한 최상의 웹 솔루션 파트너입니다.</p>
+                </div>
+                <div>
+                    <h4>Business Info</h4>
+                    <p>대표: 김한석</p>
+                    <p>상담시간: 평일 10:00 - 18:00</p>
+                    <p>주말 및 공휴일 휴무</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p>Email: contact@stoneweb.studio</p>
+                    <p>Tel: 02-1234-5678</p>
+                    <div style="margin-top: 15px; font-size: 13px; color: var(--gray-text);">
+                        <p>입금 계좌: 국민은행 123-45-67890 (스톤웹스튜디오)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stone Web Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

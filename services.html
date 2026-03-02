@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 | Stone Web Studio</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">STONE <span>WEB STUDIO</span></a></div>
+                <ul class="nav-links">
+                    <li><a href="about.html">회사 소개</a></li>
+                    <li><a href="services.html" class="active" style="color: var(--primary-blue);">서비스</a></li>
+                    <li><a href="portfolio.html">포트폴리오</a></li>
+                </ul>
+                <a href="contact.html" class="btn-contact">상담신청</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="height: 400px;">
+            <div class="slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80');">
+                <div class="slide-content">
+                    <h1>Our Services</h1>
+                    <p>Stone Web Studio는 비즈니스의 모든 단계에 필요한 디지털 제작 서비스를 제공합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Core Services</h2>
+                    <div class="bar"></div>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>브랜드 홈페이지</h3>
+                        <p>기업의 가치를 시각화하는 프리미엄 브랜딩 웹사이트 제작.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>E-Commerce</h3>
+                        <p>고도의 편의성과 고전환율을 지향하는 맞춤형 쇼핑몰 구축.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>반응형 웹</h3>
+                        <p>PC부터 모바일까니 기기에 구애받지 않는 최적의 화면 구성.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>UI/UX 컨설팅</h3>
+                        <p>사용자 데이터 분석을 통한 전문적인 인터페이스 개선 및 설계.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>검색 엔진 최적화 (SEO)</h3>
+                        <p>구글, 네이버 등 상위 노출을 위한 기술적 SEO 세팅 지원.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>유지보수 서비스</h3>
+                        <p>서버 관리, 콘텐츠 업데이트, 기술 지원 등 지속적인 파트너십.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Premium Service Plan</h2>
+                    <p>비즈니스 규모에 맞는 최적의 플랜을 선택하세요.</p>
+                    <div class="bar"></div>
+                </div>
+                <div class="pricing-grid">
+                    <!-- Essential -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Essential</h3>
+                            <div class="price">19<span>만원</span></div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>기본 페이지 5페이지 이내</li>
+                            <li>반응형 레이아웃 적용</li>
+                            <li>기본 검색 엔진 세팅</li>
+                            <li>1개월 무상 유지보수</li>
+                        </ul>
+                        <a href="contact.html?plan=essential" class="btn-pricing">상담 신청</a>
+                    </div>
+                    <!-- Growth -->
+                    <div class="pricing-card popular">
+                        <div class="pricing-header">
+                            <h3>Growth</h3>
+                            <div class="price">39<span>만원</span></div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>페이지 10페이지 이내</li>
+                            <li>맞춤형 기능 구현</li>
+                            <li>고급 디자인 작업</li>
+                            <li>3개월 무상 유지보수</li>
+                        </ul>
+                        <a href="contact.html?plan=growth" class="btn-pricing">상담 신청</a>
+                    </div>
+                    <!-- Enterprise -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Enterprise</h3>
+                            <div class="price">89<span>만원</span></div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>무제한 페이지 구성</li>
+                            <li>고도의 쇼핑몰/플랫폼 구축</li>
+                            <li>기획 및 마케팅 컨설팅</li>
+                            <li>12개월 밀착 관리 지원</li>
+                        </ul>
+                        <a href="contact.html?plan=enterprise" class="btn-pricing">상담 신청</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="call-to-value">
+            <div class="container">
+                <div class="value-container">
+                    <div class="value-image">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+                            alt="Collaborative Innovation">
+                    </div>
+                    <div class="value-content">
+                        <h2>함께 최고의 가치를<br><span>만들어 보세요.</span></h2>
+                        <p>스톤 웹 스튜디오는 당신의 아이디어를 가장 가치 있는 디지털 경험으로 바꿀 준비가 되어 있습니다.</p>
+                        <a href="contact.html" class="btn-primary"
+                            style="display: inline-block; padding: 20px 50px; font-size: 20px;">지금 바로 상담 신청하기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">STONE <span>WEB STUDIO</span></div>
+                    <p>당신의 디지털 비즈니스 성장을 위한 최상의 웹 솔루션 파트너입니다.</p>
+                </div>
+                <div>
+                    <h4>Business Info</h4>
+                    <p>대표: 김한석</p>
+                    <p>상담시간: 평일 10:00 - 18:00</p>
+                    <p>주말 및 공휴일 휴무</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p>Email: contact@stoneweb.studio</p>
+                    <p>Tel: 02-1234-5678</p>
+                    <div style="margin-top: 15px; font-size: 13px; color: var(--gray-text);">
+                        <p>입금 계좌: 국민은행 123-45-67890 (스톤웹스튜디오)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stone Web Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

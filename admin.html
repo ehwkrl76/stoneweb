@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 대시보드 | Stone Web Studio</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="admin-logo">
+            STONE <span>ADMIN</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">
+                📊 대시보드
+            </a>
+            <a href="#" class="nav-item">
+                💼 포트폴리오 관리
+            </a>
+            <a href="#" class="nav-item">
+                ✨ 서비스/가격 관리
+            </a>
+            <a href="#" class="nav-item">
+                📩 상담 문의 내역
+            </a>
+            <a href="#" class="nav-item">
+                ⚙️ 기본 설정
+            </a>
+        </nav>
+        <div class="footer-nav">
+            <a href="index.html" class="nav-item">
+                🏠 홈페이지 바로가기
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <header class="topbar">
+            <h2 id="current-menu-title">대시보드 개요</h2>
+            <div class="user-meta">
+                <span>관리자님, 안녕하세요</span>
+                <button class="btn-sm" style="margin-left: 20px;"
+                    onclick="location.href='admin-login.html'">로그아웃</button>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">이번 달 상담 총 건수</div>
+                        <div class="stat-value">128</div>
+                        <div class="stat-change change-up">▲ 12% (전월 대비)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">진행 중인 프로젝트</div>
+                        <div class="stat-value">14</div>
+                        <div class="stat-change change-up">▲ 2 (전주 대비)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">이번 달 예상 매출</div>
+                        <div class="stat-value">₩840만</div>
+                        <div class="stat-change change-up">▲ 22% (전월 대비)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">누적 완료 프로젝트</div>
+                        <div class="stat-value">342</div>
+                        <div class="stat-change">관리 시작 이후</div>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div class="card-header">
+                        <h3>최근 알림</h3>
+                    </div>
+                    <div style="padding: 24px;">
+                        <p style="font-size: 14px; color: #666;">새로운 상담 신청 2건이 대기 중입니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="content-section">
+                <div class="data-card">
+                    <div class="card-header">
+                        <h3>포트폴리오 리스트</h3>
+                        <button class="btn-sm btn-blue" onclick="openModal('portfolio')">+ 프로젝트 추가</button>
+                    </div>
+                    <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                        <div class="portfolio-admin-item"
+                            style="border: 1px solid #EEE; border-radius: 12px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80"
+                                style="width: 100%; height: 180px; object-fit: cover;">
+                            <div style="padding: 15px;">
+                                <h4 style="margin-bottom: 5px;">테크 이노베이션 오피스</h4>
+                                <p style="font-size: 12px; color: #999; margin-bottom: 12px;">Corporate Web</p>
+                                <div class="d-flex gap-10">
+                                    <button class="btn-sm" style="flex: 1;">수정</button>
+                                    <button class="btn-sm" style="flex: 1; color: red;">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-admin-item"
+                            style="border: 1px solid #EEE; border-radius: 12px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80"
+                                style="width: 100%; height: 180px; object-fit: cover;">
+                            <div style="padding: 15px;">
+                                <h4 style="margin-bottom: 5px;">글로벌 크리에이티브 스튜디오</h4>
+                                <p style="font-size: 12px; color: #999; margin-bottom: 12px;">Brand Site</p>
+                                <div class="d-flex gap-10">
+                                    <button class="btn-sm" style="flex: 1;">수정</button>
+                                    <button class="btn-sm" style="flex: 1; color: red;">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inquiries Section -->
+            <section id="inquiries" class="content-section">
+                <div class="data-card">
+                    <div class="card-header">
+                        <h3>상담 문의 내역 관리</h3>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>신청일</th>
+                                <th>고객명</th>
+                                <th>플랜</th>
+                                <th>연락처</th>
+                                <th>상태</th>
+                                <th>관리</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiry-list">
+                            <tr id="inq-1">
+                                <td>2026-03-02 21:30</td>
+                                <td>홍길동</td>
+                                <td>Growth Plan</td>
+                                <td>010-1234-5678</td>
+                                <td><span class="status-badge status-new">신규</span></td>
+                                <td>
+                                    <button class="btn-sm" onclick="updateStatus('inq-1')">확인</button>
+                                    <button class="btn-sm" onclick="deleteItem('inq-1')" style="color: red;">삭제</button>
+                                </td>
+                            </tr>
+                            <tr id="inq-2">
+                                <td>2026-03-02 18:15</td>
+                                <td>김한석</td>
+                                <td>Enterprise Plan</td>
+                                <td>010-9876-5432</td>
+                                <td><span class="status-badge status-new">신규</span></td>
+                                <td>
+                                    <button class="btn-sm" onclick="updateStatus('inq-2')">확인</button>
+                                    <button class="btn-sm" onclick="deleteItem('inq-2')" style="color: red;">삭제</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="admin-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">정보 수정</h3>
+                <button onclick="closeModal()"
+                    style="background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="admin-form-group">
+                    <label>제목/이름</label>
+                    <input type="text" id="field-title">
+                </div>
+                <div class="admin-form-group">
+                    <label>내용/설명</label>
+                    <textarea rows="4" id="field-desc"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-sm" onclick="closeModal()">취소</button>
+                <button class="btn-sm btn-blue" onclick="saveData()">저장하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('.content-section');
+        const titleMap = {
+            'dashboard': '대시보드 개요',
+            'portfolio': '포트폴리오 관리',
+            'services': '서비스/가격 관리',
+            'inquiries': '상담 문의 내역'
+        };
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === 'index.html') return;
+
+                e.preventDefault();
+                const targetId = this.innerText.includes('📊') ? 'dashboard' :
+                    this.innerText.includes('💼') ? 'portfolio' :
+                        this.innerText.includes('✨') ? 'dashboard' : // To be implemented
+                            this.innerText.includes('📩') ? 'inquiries' : 'dashboard';
+
+                // Update active states
+                navItems.forEach(n => n.classList.remove('active'));
+                this.classList.add('active');
+
+                sections.forEach(s => s.classList.remove('active'));
+                document.getElementById(targetId).classList.add('active');
+
+                // Update title
+                document.getElementById('current-menu-title').innerText = titleMap[targetId];
+            });
+        });
+
+        // Data Management Functions
+        function deleteItem(id) {
+            if (confirm('정말 삭제하시겠습니까?')) {
+                document.getElementById(id).remove();
+                alert('삭제되었습니다.');
+            }
+        }
+
+        function updateStatus(id) {
+            const badge = document.querySelector(`#${id} .status-badge`);
+            badge.className = 'status-badge status-replied';
+            badge.innerText = '확인됨';
+            alert('상태가 변경되었습니다.');
+        }
+
+        function openModal(type) {
+            document.getElementById('admin-modal').classList.add('active');
+            document.getElementById('modal-title').innerText = type === 'portfolio' ? '프로젝트 추가' : '정보 수정';
+        }
+
+        function closeModal() {
+            document.getElementById('admin-modal').classList.remove('active');
+        }
+
+        function saveData() {
+            alert('저장되었습니다! (시뮬레이션)');
+            closeModal();
+        }
+    </script>
+</body>
+
+</html>
